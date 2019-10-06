@@ -48,3 +48,7 @@ $ npm run python3-serve-open
 
 You Can also run the Application without a server. Just open the ``index.html`` file in your Browser and it should run serverless.
 
+Feel absolutely Free to use this application in your next project if you do you can @mention us. 
+Contributors welcome.
+
+Cheers!
