@@ -1,18 +1,109 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en"
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>my-first-website</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="application-name" content="simple-service-worker">
+  <meta name="description" content="A Starter App Implementing service woker, installable and works offline.">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,Vue, vue, vue-router, pouchdb">
+  <meta name="author" content="Ian Moncrieffe.">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="apple-mobile-web-app-title" content="SSW">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta name=mobile-web-app-capable content=yes>
+  <meta name=apple-mobile-web-app-capable content=yes>
+  <meta name=apple-mobile-web-app-status-bar-style content=black>
+
+  <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+    
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+  <link rel="icon" type="image/png" sizes="194x194" href="images/favicon-194x194.png">
+  <link rel="manifest" href="site.webmanifest"> 
+  <title>simple-service-worker</title>
+  <LINK href="static/css/main.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
+    <!-- APP CLIENT -->
+    <div id="app"><div><router-view></router-view></div></div>
 
-<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" id="octocat" alt="octocat-gif" />
+    <!-- DEPENDENCIES -->
+    <script src="static/js/vue.js"></script>
+    <script src="static/js/vue-router.js"></script>
 
-<!-- Change this code here by copy and pasting your template on line 15 -->
-<p>Welcome to your first GitHub Pages website!</p>
+    <!-- DATA CALIBRATION & VALIDATION -->
+    <!--script-- src="static/js/veevalidate.js"></!--script-->
+    <!--script-- src="static/js/md5js.js"></!--script-->
+    <!--script-- src="static/js/bcryptjs.js"></!--script-->
+
+    <!-- CLIENT DATA STORAGE -->
+    <!--script-- src="static/js/pouchdb"></!--script--> <!-- data persistence and server sync -->
+    <!--script-- src="static/js/nedb.js"></!--script--> <!-- application specific, logs, metrics, app related data... -->
+    <!--script-- src="static/js/gun.js"></!--script--> <!-- for realtime comms -->
+  
+    <!-- PAGES -->
+    <script src="static/views/index_page.vue.js"></script>
+    <script src="static/views/octa_home.vue.js"></script> 
+
+    <!-- COMPONENTS -->
+    <script src="static/components/octa.vue.js"></script> 
+    
+    <!-- APPLICATION -->
+    <script type="text/javascript">
+        Vue.use(VueRouter);
+        
+        const routes = [
+
+        {
+            path: '/',
+            component: indexPage,
+            title: "Index Home"
+        },
+        {
+            path: '/octa',
+            component: octaHomePage
+
+        }
+
+        ];
+
+        let router = new VueRouter({
+            
+            routes 
+        })
+
+        router.beforeEach((to, from, next) => {
+            next()
+        })
+
+        const vm = new Vue({
+            data: {
+              message: 'Simple Service Worker Enabled..!' 
+              },
+            router
+          }).$mount('#app')
+
+              
+    </script>
+
+    <!-- Register The Service Worker if Browser Capable -->
+    <script>
+            if('serviceWorker' in navigator) {
+                navigator.serviceWorker
+                       .register('/site-worker.js')
+                      .then(function() { console.log("Service Worker Registered"); });
+            }
+        
+       
+   </script>
+        
+
+
 
 </body>
 </html>

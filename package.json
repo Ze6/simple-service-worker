@@ -1,0 +1,38 @@
+{
+  "name": "simple-service-worker",
+  "version": "0.0.1",
+  "description": "A Fully Functional Offline Capable Application Implementing tailwindcss, pouchdb, vuejs, vue-router, service worker",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ze6/simple-service-worker.git"
+  },
+  "keywords": [
+    "pwa",
+    "spa",
+    "html",
+    "html5",
+    "vue",
+    "vuejs",
+    "vue-router",
+    "service",
+    "worker",
+    "offline",
+    "installable"
+  ],
+  "author": "Ian Moncrieffe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ze6/simple-service-worker/issues"
+  },
+  "homepage": "https://github.com/Ze6/simple-service-worker#readme",
+  "dependencies": {
+    "pouchdb": "^7.1.1",
+    "tailwindcss": "^1.1.2",
+    "vue": "^2.6.10",
+    "vue-router": "^3.1.3"
+  }
+}
