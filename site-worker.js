@@ -13,7 +13,9 @@ self.addEventListener('install', function(e) {
        '/static/js/vue-router.js',
     
 	// Pages
-	'/static/views/index_page.vue.js',
+  '/static/views/index_page.vue.js',
+  '/static/views/octa_home.vue.js',
+  '/static/views/page404.vue.js',
 
 	// Components
 

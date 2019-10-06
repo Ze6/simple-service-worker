@@ -4,6 +4,8 @@
   "description": "A Fully Functional Offline Capable Application Implementing tailwindcss, pouchdb, vuejs, vue-router, service worker",
   "main": "index.js",
   "scripts": {
+    "python-serve": "python -m SimpleHTTPServer 1200 --bind 127.0.0.1",
+    "python3-serve": "python3 -m http.server 1200 --bind 127.0.0.1",
     "test": "\"\""
   },
   "repository": {
